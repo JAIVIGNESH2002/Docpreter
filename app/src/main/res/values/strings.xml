@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Docpreter</string>
+    <string name="poweredBy">Powered by</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="boardOneDesc"><b>JUST RELAX</b>\n\nNo more headaches in interpreting prescriptions, and
+    in remembering medication schedules</string>
+    <string name="boardTwoDesc"><b>Auto reminders</b>\n\nSets automatic reminder for your medication</string>
+    <string name="boardThreeDesc"><b>OCR Feature</b>\n\nOCR feature to convert prescriptions to understandable form</string>
+    <string name="skip">Swipe></string>
+    <string name="half_name">Doc</string>
+    <string name="thalf_name">preter</string>
+    <string name="getStarted">Get started</string>
+    <string name="mailHint">Enter your email</string>
+    <string name="phoneHint">Enter your mobile number</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="invText">Invitation mail sent. Tap to open</string>
+    <string name="login">Login</string>
+    <string name="alreadyUser">Already a user?</string>
+    <string name="tabs">Tabs</string>
+</resources>
