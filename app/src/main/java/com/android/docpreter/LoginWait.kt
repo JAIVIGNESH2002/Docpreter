@@ -21,18 +21,10 @@ class LoginWait : AppCompatActivity() {
         }
         val loginBt = findViewById<MaterialButton>(R.id.loginBt)
         loginBt.setOnClickListener {
-            ZCatalystApp.getInstance().login(
-                {
-                    ZCatalystLogger.logInfo("Login Success")
-                    val intent = Intent(applicationContext,MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                    //Actions to execute on successful login
-                },
-                {
-                    ZCatalystLogger.logError("Login failed - $it")
-                    //Actions to execute on failed login
-                })
+            val i = baseContext.packageManager.getLaunchIntentForPackage(baseContext.packageName)
+            i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(i)
+            finish()
         }
     }
 }

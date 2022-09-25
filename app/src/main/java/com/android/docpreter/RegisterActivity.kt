@@ -1,8 +1,10 @@
 package com.android.docpreter
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
@@ -27,31 +29,44 @@ class RegisterActivity : AppCompatActivity() {
         rButton.setOnClickListener {
             val userMail = mailField.text.toString()
             val userNumber = mobField.text.toString()
-            val cUser = ZCatalystApp.getInstance().newUser(userNumber,userMail)
-            println("userMail:***$userMail")
+            val cUser = ZCatalystApp.getInstance().newUser(userNumber, userMail)
             ZCatalystApp.getInstance().signUp(cUser,
                 {
                     println("User Sign up success")
+                    val sharedPreference =
+                        this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+                    val editor = sharedPreference.edit()
+                    editor.putString("visited", "true")
+                    editor.apply()
                     val intent = Intent(applicationContext, LoginWait::class.java)
                     startActivity(intent)
+                    finish()
                 },
                 { exception ->
-                    println("User Sign up failed $exception")
+                    Toast.makeText(applicationContext,"Signup failed ! $exception",Toast.LENGTH_LONG).show()
                 })
         }
-        loginBt.setOnClickListener {
-             ZCatalystApp.getInstance().login(
-                {
-                    ZCatalystLogger.logInfo("Login Success")
-                    Toast.makeText(applicationContext,"Login success",Toast.LENGTH_LONG).show()
-                    val intent = Intent(this,MainActivity::class.java)
-                    startActivity(intent)
-                    //Actions to execute on successful login
-                },
-                {
-                    ZCatalystLogger.logError("Login failed - $it")
-                    //Actions to execute on failed login
-                })
+            loginBt.setOnClickListener {
+                ZCatalystApp.getInstance().login(
+                    {
+                        ZCatalystLogger.logInfo("Login Success")
+                        val sharedPreference =
+                            this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+                        val editor = sharedPreference.edit()
+                        editor.putString("visited", "true")
+                        editor.apply()
+                        Toast.makeText(applicationContext, "Login success", Toast.LENGTH_SHORT)
+                            .show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        //Actions to execute on successful login
+                    },
+                    {
+                        ZCatalystLogger.logError("Login failed - $it")
+                        //Actions to execute on failed login
+                    })
+            }
+
         }
     }
-}

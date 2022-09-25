@@ -16,15 +16,14 @@ class SplashActivity: AppCompatActivity() {
             val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
             val check = sharedPreference.getString("visited","false")
             if(check.equals("true")){
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this,RegisterActivity::class.java)
                 startActivity(intent)
+                finish()
             }else {
                 val intent = Intent(this, BoardingActivity::class.java)
                 startActivity(intent)
                 finish()
             }
         },3000)
-
-
     }
 }

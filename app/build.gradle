@@ -39,6 +39,7 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
+    implementation files('C:\\Users\\91995\\Downloads\\images\\spamitup\\json-simple-1.1.1.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -49,6 +50,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'com.airbnb.android:lottie:5.2.0'
     implementation 'com.github.Delecom:LiquidSwipePager:1.0.1'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
     //Catalyst dependency
     implementation 'com.zoho.catalyst:android-sdk:2.0.0'
 

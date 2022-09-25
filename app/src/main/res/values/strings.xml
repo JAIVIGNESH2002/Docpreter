@@ -18,4 +18,7 @@
     <string name="login">Login</string>
     <string name="alreadyUser">Already a user?</string>
     <string name="tabs">Tabs</string>
+    <string name="presNameHolder">Name</string>
+    <string name="prescByHolder">Presc by</string>
+    <string name="intervalHolder">M / A/ N</string>
 </resources>

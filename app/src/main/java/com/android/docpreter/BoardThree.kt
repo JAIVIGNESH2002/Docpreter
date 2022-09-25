@@ -22,10 +22,6 @@ class BoardThree : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val getStartd = view.findViewById<MaterialButton>(R.id.getStarted)
         getStartd.setOnClickListener {
-            val sharedPreference =  requireActivity().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-            val editor = sharedPreference.edit()
-            editor.putString("visited","true")
-            editor.apply()
             val intent = Intent(activity,RegisterActivity::class.java)
             startActivity(intent)
             activity?.finish()
